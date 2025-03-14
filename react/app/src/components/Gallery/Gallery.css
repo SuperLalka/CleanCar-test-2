@@ -1,0 +1,17 @@
+.Gallery__container {
+    color: white;
+    background-color: #6c7f8f;
+    padding: 2vh 3vw;
+}
+
+.Gallery__image-list {
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+}
+
+.Gallery__image-list-item {
+    height: auto;
+    width: 30%;
+}

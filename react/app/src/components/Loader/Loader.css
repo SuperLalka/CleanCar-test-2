@@ -1,0 +1,27 @@
+.Loader__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Loader__form {
+    text-align: center;
+    margin: 20px;
+}
+
+.Loader__form > label {
+    padding: 5vh 10vw;
+}
+
+.Loader__form > p {
+    font-size: 20px;
+}
+
+.Loader__submit-button {
+    padding: 0 10px;
+}
+
+.Loader__log-block {
+    height: 30vh;
+    width: 50vw;
+}

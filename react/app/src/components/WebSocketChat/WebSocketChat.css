@@ -1,0 +1,13 @@
+.WebSocketChat__container {
+    border: dotted;
+    height: 30vh;
+    width: 50vw;
+}
+
+.WebSocketChat__header-text {
+    text-align: center;
+}
+
+.WebSocketChat__log-list-item {
+    margin: 0 10px;
+}

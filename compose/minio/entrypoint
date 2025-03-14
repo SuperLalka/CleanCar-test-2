@@ -1,0 +1,20 @@
+#!/bin/sh
+
+AWS_ENDPOINT='http://localhost:9000'
+AWS_ACCESS_KEY_ID='minioadmin'
+AWS_SECRET_ACCESS_KEY='minioadmin'
+AWS_BUCKETS='media staticfiles'
+
+mkdir /buckets
+minio server /buckets & server_pid=$!;
+    until mc alias set local ${AWS_ENDPOINT} ${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY}; do
+        sleep 1;
+    done;
+    for bucket in ${AWS_BUCKETS}
+    do
+       mc mb --ignore-existing local/"${bucket}";
+       mc anonymous set public local/"${bucket}";
+    done
+    kill $server_pid
+
+minio server /buckets --address :9000 --console-address :9001
