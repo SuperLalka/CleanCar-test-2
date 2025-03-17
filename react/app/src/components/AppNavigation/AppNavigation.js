@@ -1,28 +1,41 @@
 import React from 'react';
-import {NavLink} from "react-router";
+import {Link} from 'react-router';
 
 import './AppNavigation.css';
 
 
-class AppNavigation extends React.Component {
+export default class AppNavigation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            current_page: window.location.pathname
+        };
+    }
+
+    mark_current_link() {
+        let current_link = document.querySelector(`a[href="${this.state.current_page}"]`);
+        if (current_link) {current_link.style.color = "black"};
+    }
+
+    componentDidMount() {
+        this.mark_current_link();
+    }
 
     render() {
         return (
             <nav className="AppNavigation__container">
                 <ul className="AppNavigation__list">
                     <li>
-                        <NavLink to="/" end>Home</NavLink>
+                        <Link to="/" end="true" data-testid="link-home">Home</Link>
                     </li>
                     <li>
-                        <NavLink to="/loader" end>Load Image</NavLink>
+                        <Link to="/loader" data-testid="link-loader">Load Image</Link>
                     </li>
                     <li>
-                        <NavLink to="/gallery">Gallery</NavLink>
+                        <Link to="/gallery" data-testid="link-gallery">Gallery</Link>
                     </li>
                 </ul>
             </nav>
         );
     }
 }
-
-export default AppNavigation;

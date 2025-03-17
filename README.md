@@ -71,7 +71,7 @@ docker-compose -f docker-compose.yml up -d --build
 Запуск тестов:
 
 ```sh
-sh start_tests.sh
+docker-compose -f test.yml up --build
 ```
 
 

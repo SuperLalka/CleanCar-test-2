@@ -1,7 +1,8 @@
 .Gallery__container {
+    background-color: #66727d;
     color: white;
-    background-color: #6c7f8f;
     padding: 2vh 3vw;
+    text-align: center;
 }
 
 .Gallery__image-list {

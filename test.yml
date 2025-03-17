@@ -2,6 +2,18 @@ version: '3'
 
 
 services:
+  react:
+    build:
+      context: .
+      dockerfile: ./compose/react/Dockerfile
+    container_name: cc_react
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./react/app:/app
+    #      - ./app/node_modules
+    command: [ "npm", "test" ]
+
   django:
     build:
       context: .

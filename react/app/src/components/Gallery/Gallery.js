@@ -49,6 +49,7 @@ class Gallery extends React.Component {
             <div>
                 <AppNavigation/>
                 <div className="Gallery__container">
+                    <h2>Галерея</h2>
                     {getImages()}
                 </div>
             </div>

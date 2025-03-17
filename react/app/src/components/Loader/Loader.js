@@ -13,8 +13,8 @@ const uploadURL = "http://0.0.0.0:80/api/images/";
 export default function Loader() {
     const [submitting, setSubmitting] = useState(false);
     const [progress, setProgress] = useState(0);
-
     const [file, setFile] = useState(null);
+
     const handleLoaderChange = (file) => {
         setFile(file);
         setSubmitting(true);
@@ -36,14 +36,6 @@ export default function Loader() {
                 console.log(Math.round((event.loaded / event.total) * 100));
                 setProgress(Math.round((event.loaded / event.total) * 100));
             }
-
-            xhr.onload = () => {
-                if (xhr.status === 200) {
-                    resolve()
-                } else {
-                    reject()
-                }
-            };
 
             const myData = new FormData();
             myData.append('file', file);
@@ -69,6 +61,7 @@ export default function Loader() {
             />
             <AppNavigation/>
             <div className="Loader__container">
+                <h2>Загрузчик</h2>
                 <form className="Loader__form" onSubmit={handleFormSubmit}>
                     <FileUploader
                         handleChange={handleLoaderChange}
